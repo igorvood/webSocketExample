@@ -26,7 +26,15 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-messaging</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>ru.vood</groupId>
+            <artifactId>data-object</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
+
 
     <build>
         <plugins>
