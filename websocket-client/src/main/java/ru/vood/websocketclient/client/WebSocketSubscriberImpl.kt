@@ -7,19 +7,24 @@ package ru.vood.websocketclient.client
 
 import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Controller
+import org.springframework.web.socket.client.WebSocketClient
+import ru.vood.websocket.dto.HelloMessage
+
 
 @Controller
 class WebSocketSubscriberImpl(
-        private val messagingTemplate: SimpMessagingTemplate
+        private val messagingTemplate: SimpMessagingTemplate,
+        private val wsc: WebSocketClient
 ) {
 
 
-//    }
+    //    }
+//    @MessageMapping("/hello")
+//    @SubscribeMapping("/voodEndpoint")
+    fun initTalk() {
 
-//    @SubscribeMapping("/hello")
-//    fun chatInit() {
-//        println("worked")
-//        val chatId = 1 //for example
-//        messagingTemplate!!.convertAndSend("/chat/$chatId", ChatMessage("connected"))
-//    }
+        wsc.doHandshake()
+        val chatId = 1 //for example
+        messagingTemplate.convertAndSend("/app/hello", HelloMessage("tora"))
+    }
 }

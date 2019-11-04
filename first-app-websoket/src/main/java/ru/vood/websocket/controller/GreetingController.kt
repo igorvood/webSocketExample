@@ -17,7 +17,6 @@ class GreetingController(val teamContainer: TeamContainerImpl) {
 
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
-    @Throws(Exception::class)
     fun greeting(message: HelloMessage): Greeting {
         Thread.sleep(1000) // simulated delay
         val token = """${message.name} ${(random() * 10_000).roundToInt()}"""
